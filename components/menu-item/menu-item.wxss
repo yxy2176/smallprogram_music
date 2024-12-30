@@ -1,0 +1,41 @@
+/* components/menu-item/menu-item.wxss */
+.menu-item{
+  /* 内联元素  => 内联元素的特点是宽度和高度属性不起作用，除非该元素是内联块元素 */
+  display:inline;
+  width: 100%;
+}
+
+.top{
+  position: relative;
+}
+
+.top .image{
+  width: 100%;
+  border-radius: 12rpx;
+  background-size:cover;
+}
+
+.top .count{
+  position: absolute;
+  right:0;
+  color:#fff;
+  bottom:10rpx;
+  font-size:22rpx;
+  border-radius: 12rpx;
+  background:rgba(0,0,0,.5)
+}
+
+.menu-item .bottom{
+  width:100%;
+  font-size:26rpx;
+
+  /* 显示2行 */
+  white-space: normal;
+  
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+

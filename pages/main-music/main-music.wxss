@@ -1,0 +1,36 @@
+/* pages/main-music/main-music.wxss */
+Page{
+  background-color: #fafafa;
+  --search-background-color:#fff;
+  box-sizing: border-box;
+  padding:0 24rpx;
+}
+
+/* 轮播图的样式 */
+.banner{
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.banner .banner-image{
+  width: 100%;
+}
+
+.list{
+  /* display: flex; */
+  white-space: nowrap;
+  margin-left:-24rpx;
+}
+
+.list .item{
+  display: inline-block;
+  width: 220rpx;
+  margin-left:24rpx;
+}
+
+.list .item:last-of-type{
+  margin-right:24rpx;
+}
+
+
+

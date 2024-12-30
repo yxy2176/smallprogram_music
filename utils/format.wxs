@@ -1,0 +1,38 @@
+//对count进行格式化，显示万&亿等，便于阅读
+function formatCount(count) {
+  count = Number(count)
+  if (count >= 100000000) {
+    return (count / 100000000).toFixed(1) + "亿"
+  } else if (count >= 10000) {
+    return (count / 10000).toFixed(1) + "万"
+  } else {
+    return count
+  }
+}
+
+// 2 -> 02
+// 24 -> 24
+function padLeft(time) {
+  time = time + ""
+  return ("00" + time).slice(time.length)
+}
+
+// 对time进行格式化
+// 100 -> 01:40
+function formatTime(time){
+  //将毫秒转化为秒   （这是否要做，取决于接口传来的time的单位是毫秒还是秒【此时是毫秒】）
+  time = time / 1000
+
+  // 获取时间
+  var minute = Math.floor(time/60)
+  var second = Math.floor(time) % 60
+
+  // 拼接字符串
+  return padLeft(minute) + ":" + padLeft(second)
+}
+
+//必须在这里导出以后，才能被其他地方调用，且必须使用CommonJS导出
+module.exports = {
+  formatCount:formatCount,
+  formatTime:formatTime
+}
