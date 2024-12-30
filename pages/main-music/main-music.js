@@ -2,6 +2,7 @@ import { getMusicBanner, getPlaylist } from "../../services/music"
 import {throttle} from 'underscore'
 import querySelect from "../../utils/query-select"
 import recommendStore from '../../store/recommendStore'
+import rankingStore from '../../store/rankingStore'
 
 const querySelectThrottle = throttle(querySelect,100)
 const app = getApp()
@@ -21,6 +22,10 @@ Page({
     //屏幕的宽度
     screenWidth:'',
 
+    // 巅峰榜单数据
+    rankingInfos:[],
+    isRankingData:false,
+
     
   },
 
@@ -30,14 +35,28 @@ Page({
     this.fetchPlaylist()
 
     // 发起action
+    // 推荐歌曲的部分
     recommendStore.onState("recommendSongInfo",this.handleRecommendSongs)
     recommendStore.dispatch("fetchRecommandSongsAction")
 
+    // 巅峰榜单的rankingStore部分
+    rankingStore.onState("upRanking",this.handleUpRanking)
+    rankingStore.onState("originRanking",this.handleOriginRanking)
+    rankingStore.onState("newRanking",this.handleNewRanking)
+    rankingStore.dispatch("fetchRankingDataAction")
 
 
     // 获取屏幕的尺寸
     this.setData({screenWidth:app.globalData.screenWidth})
   },
+
+  onUnload(){
+    recommendStore.offState("recommendSongs",this.handleRecommendSongs)
+    rankingStore.offState("newRanking",this.handleNewRanking)
+    rankingStore.offState("upRanking",this.handleUpRanking)
+    rankingStore.offState("originRanking",this.handleOriginRanking)
+  },
+
 
   // 从接口获取轮播图数据
   async fetchMusicBanner(){
@@ -80,9 +99,29 @@ Page({
 
 
   //  ============== 从store中获取数据的部分 ==================
+  // 推荐歌曲部分的数据
   handleRecommendSongs(value){
     // 如果为空没数据，则直接返回，不然没法从undefined里进行slice的操作
     if(!value.tracks) return 
     this.setData({recommendSongs:value.tracks.slice(0,6)})
-  }
+  },
+  // 巅峰榜的数据
+  handleUpRanking(value){
+    if(!value.name) return;
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos, upRanking: value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
+  handleOriginRanking(value){
+    if(!value.name) return;
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos, originRanking: value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
+  handleNewRanking(value){
+    if(!value.name) return;
+    this.setData({isRankingData:true})
+    const newRankingInfos = {...this.data.rankingInfos, newRanking: value}
+    this.setData({rankingInfos:newRankingInfos})
+  },
 })

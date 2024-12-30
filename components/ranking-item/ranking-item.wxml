@@ -1,0 +1,22 @@
+<!--components/ranking-item/ranking-item.wxml-->
+<wxs src="/utils/format.wxs" module="fmt"></wxs>
+<view class="ranking-item" bindtap="onRankingItemTap">
+  <!-- 左侧 ： 标题 + 列表数据3条 -->
+  <view class="content">
+    <view class="name">{{itemData.name}}</view>
+    <view class="list">
+      <block wx:for="{{3}}" wx:key="*this">
+        <view class="item">
+          <text>{{item+1}}</text>
+          <text>{{itemData.tracks[item].name}}</text>
+          <text class="artist"> - {{itemData.tracks[item].ar[0].name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 右侧 ： 图片和总播放次数 -->
+  <view class="album">
+    <image class="image" src="{{itemData.coverImgUrl}}" mode="widthFix" />
+    <view class="count">{{fmt.formatCount(itemData.playCount)}}</view>
+  </view>
+</view>

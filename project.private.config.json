@@ -9,8 +9,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "detail-menu",
-          "pathName": "pages/detail-menu/detail-menu",
+          "name": "pages/detail-song/detail-song",
+          "pathName": "pages/detail-song/detail-song",
           "query": "",
           "launchMode": "default",
           "scene": null

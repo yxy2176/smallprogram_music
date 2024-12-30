@@ -11,7 +11,8 @@
     "components/song-item-v2/song-item-v2",
     "pages/detail-song/detail-song",
     "components/menu-area/menu-area",
-    "pages/detail-menu/detail-menu"
+    "pages/detail-menu/detail-menu",
+    "components/ranking-item/ranking-item"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,4 +1,11 @@
 <!--components/song-item-v2/song-item-v2.wxml-->
-<view class="song-item-v2">
-
+<view class="song-item-v2" bindtap="onSongItemTap">
+  <view class="index">{{index}}</view>
+  <view class="info">
+    <text class="songTitle">{{itemData.name}}</text>
+    <view class="source">
+      <image class="icon" src="/assets/images/icons/sq_icon.png"/>
+      <text class="singer">{{itemData.ar[0].name}}</text>
+    </view>
+  </view>
 </view>
