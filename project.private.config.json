@@ -2,12 +2,26 @@
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "yxyMusic",
   "setting": {
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "urlCheck": false
   },
   "condition": {
     "miniprogram": {
       "list": [
+        {
+          "name": "pages/detail-song/detail-song",
+          "pathName": "pages/detail-song/detail-song",
+          "query": "type=menu&id=12937122744",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "推荐歌曲的更多",
+          "pathName": "pages/detail-song/detail-song",
+          "query": "type=recommend",
+          "launchMode": "default",
+          "scene": null
+        },
         {
           "name": "pages/detail-song/detail-song",
           "pathName": "pages/detail-song/detail-song",

@@ -1,0 +1,99 @@
+/* components/menu-header/menu-header.wxss */
+.content {
+  position: relative;
+  color: #fff;
+  display: flex;
+  height: 450rpx;
+  flex-direction: column;
+  margin-left: -20rpx;
+}
+
+.content .bg-image {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.content .bg-cover {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(5px);
+}
+
+.album {
+  display: flex;
+  margin-top: 60rpx;
+  padding:0 50rpx;
+}
+
+.album .image {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 16rpx;
+}
+
+.album .info {
+  position: relative;
+  height: 220rpx;
+  flex:1;
+  margin-left: 50rpx;
+}
+
+.album .author {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.album .author .avatar {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+}
+
+.album .author .nickname {
+  margin-left: 24rpx;
+  font-size: 24rpx;
+}
+
+.album .author .desc {
+  font-size: 24rpx;
+  position: absolute;
+  margin-top:50rpx;
+  bottom: -5rpx;
+  width: 100%;
+  /* left:0; */
+  /* display: inline-block; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.operation {
+  display: flex;
+  justify-content: space-around;
+  padding: 30rpx;
+  margin-top: 30rpx;
+}
+
+.operation .item {
+  display: flex;
+  align-items: center;
+}
+
+.operation .item .icon {
+  width: 48rpx;
+  margin-right: 10rpx;
+}
+
+.operation .item .text {
+  font-size: 28rpx;
+}

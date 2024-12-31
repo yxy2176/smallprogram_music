@@ -13,16 +13,16 @@
 </swiper>
 
 <!-- 推荐歌曲部分 -->
-<!-- <view class="recommend" >
-  <area-header title="推荐歌曲" bind:moreClick="onRecommentMoreClick"/>
+<view class="recommend" wx:if="" >
+  <area-header title="推荐歌曲" bind:moreclick="onRecommendMoreClick"/>
   <view class="list">
     <block wx:for="{{recommendSongs}}" wx:key="id">
       <song-item-v1 itemData="{{item}}" />
     </block>
   </view>
-</view> -->
+</view>
 
-<!-- 热门歌单 -->
+<!-- 热门歌单   -> 已抽取 -->
 <!-- <view class="hot-menu">
   <area-header title="热门歌单" />
   <scroll-view class="list" scroll-x enable-flex style="width: {{screenWidth}}px;">
@@ -35,17 +35,17 @@
 </view> -->
 
 <!-- 抽取后的热门歌单 & 推荐歌单 -->
-<!-- <menu-area title="热门歌单" menuList="{{hotMenuList}}"/>
-<menu-area title="推荐歌单" menuList="{{recMenuList}}"/> -->
+<menu-area title="热门歌单" menuList="{{hotMenuList}}"/>
+<menu-area title="推荐歌单" menuList="{{recMenuList}}"/>
 
 
 
 <!-- 巅峰榜部分 -->
-<view class="ranking">
+<view class="ranking" wx:if="isRankingData">
   <area-header title="巅峰榜" hasMore="{{false}}"/>
   <view class="rankinglist">
     <block wx:for="{{rankingInfos}}" wx:key="id">
-      <ranking-item itemData="{{item}}" />
+      <ranking-item itemData="{{item}}" key="{{index}}" />
     </block>
   </view>
 

@@ -13,6 +13,7 @@ Component({
   methods:{
     onMoreTap(){
       this.triggerEvent("moreclick")
+      // console.log("触发了moreclick");
     }
   }
 })

@@ -17,6 +17,7 @@ Page({
     // —————— type:ranking  -> 榜单的数据
     // —————— type:recomment -> 推荐歌曲的数据
     const type = options.type
+    // console.log(type);
     this.setData({ type })
     // 若是 榜单
     if (type === "ranking") {
@@ -44,5 +45,13 @@ Page({
     wx.setNavigationBarTitle({
       title: value.name,
     })
+  },
+
+  onUnload(){
+    if(this.data.type==="ranking"){
+      rankingStore.offState(this.data.key,this.handleRanking)
+    }else if(this.data.type="recommend"){
+      recommendStore.offState("recommendSongInfo",this.handleRanking)
+    }
   }
 })

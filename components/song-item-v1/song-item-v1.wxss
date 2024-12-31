@@ -2,7 +2,7 @@
 .song-item{
   display: flex;
   align-items: center;
-  margin:16rpx 0;  
+  margin:16rpx 16rpx;  
 }
 
 .image{

@@ -96,6 +96,12 @@ Page({
       this.setData({recMenuList:res.playlists})
     })
   },
+  // 点击 推荐歌曲旁边的 更多
+  onRecommendMoreClick(){
+    wx.navigateTo({
+      url: '/pages/detail-song/detail-song?type=recommend',
+    })
+  },
 
 
   //  ============== 从store中获取数据的部分 ==================
